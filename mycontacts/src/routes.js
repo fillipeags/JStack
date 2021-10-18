@@ -3,7 +3,14 @@ const ContractController = require('./app/controllers/ContractController');
 
 const router = Router();
 
-router.get('/contacts', ContractController.index);
+router.get(
+  '/contacts',
+  (request, response, next) => {
+    request.appId = 'MeuApp';
+    next();
+  },
+  ContractController.index,
+);
 router.get('/contacts/:id', ContractController.show);
 router.post('/contacts', ContractController.store);
 router.put('/contacts/:id', ContractController.update);
