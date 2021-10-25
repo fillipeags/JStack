@@ -22,7 +22,6 @@ class ContractController {
     const {
       name, email, phone, category_id,
     } = request.body;
-    console.log(email);
 
     const contactExists = await ContactsRepository.findByEmail(email);
 

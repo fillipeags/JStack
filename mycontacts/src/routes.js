@@ -1,19 +1,26 @@
 const { Router } = require('express');
-const ContractController = require('./app/controllers/ContractController');
+const ContactController = require('./app/controllers/ContactController');
+const CategoryController = require('./app/controllers/CategoryController');
 
 const router = Router();
 
 router.get(
   '/contacts',
-  (request, response, next) => {
-    request.appId = 'MeuApp';
-    next();
-  },
-  ContractController.index,
+  // (request, response, next) => {
+  //   request.appId = 'MeuApp';
+  //   next();
+  // },  MIDDLEWARE
+  ContactController.index,
 );
-router.get('/contacts/:id', ContractController.show);
-router.post('/contacts', ContractController.store);
-router.put('/contacts/:id', ContractController.update);
-router.delete('/contacts/:id', ContractController.delete);
+router.get('/contacts/:id', ContactController.show);
+router.post('/contacts', ContactController.store);
+router.put('/contacts/:id', ContactController.update);
+router.delete('/contacts/:id', ContactController.delete);
+
+router.get('/categories', CategoryController.index);
+router.get('/categories/:id', CategoryController.show);
+router.post('/categories', CategoryController.store);
+router.put('/categories/:id', CategoryController.update);
+router.delete('/categories/:id', CategoryController.delete);
 
 module.exports = router;
