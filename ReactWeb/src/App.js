@@ -2,22 +2,29 @@ import React from 'react';
 import Header from './Header';
 import Post from './Post';
 import { useState } from 'react';
+import { ThemeProvider } from './ThemeContext';
 
 const initialPosts = [
     {
+        id: Math.random(),
         title: 'Title#1',
         subtitle: 'Sub#1',
-        likes: 10
+        likes: 10,
+        read: false,
     },
     {
+        id: Math.random(),
         title: 'Title#2',
         subtitle: 'Sub#1',
-        likes: 10
+        likes: 10,
+        read: true,
     },
     {
+        id: Math.random(),
         title: 'Title#3',
         subtitle: 'Sub#1',
-        likes: 10
+        likes: 10,
+        read: false,
     }
 ]
 
@@ -35,8 +42,14 @@ function App() {
         ])
     }
 
+    function handleRemovePost(postId) {
+        setPosts((prevState) => (
+            prevState.filter((post) => post.id !== postId)
+        ));
+    }
+
     return (
-        <>
+        <ThemeProvider>
             <Header title="JStack's Blog">
                 <h2>
                     Posts da semana
@@ -47,14 +60,11 @@ function App() {
             {posts.map((post, index) => (
                 <Post 
                     key={index}
-                    likes={post.likes}
-                    post={{
-                        title: post.title,
-                        subtitle: post.subtitle
-                    }}
+                    onRemove={handleRemovePost}
+                    post={post}
                 />
             ))}
-        </>
+        </ThemeProvider>
     )
 }
 
