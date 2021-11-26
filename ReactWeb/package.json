@@ -15,6 +15,8 @@
     "html-webpack-plugin": "^5.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "sass": "^1.43.5",
+    "sass-loader": "^12.3.0",
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"

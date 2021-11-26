@@ -11,6 +11,7 @@ const initialPosts = [
         subtitle: 'Sub#1',
         likes: 10,
         read: false,
+        removed: false,
     },
     {
         id: Math.random(),
@@ -18,6 +19,7 @@ const initialPosts = [
         subtitle: 'Sub#1',
         likes: 10,
         read: true,
+        removed: false,
     },
     {
         id: Math.random(),
@@ -25,6 +27,7 @@ const initialPosts = [
         subtitle: 'Sub#1',
         likes: 10,
         read: false,
+        removed: true,
     }
 ]
 
@@ -44,7 +47,12 @@ function App() {
 
     function handleRemovePost(postId) {
         setPosts((prevState) => (
-            prevState.filter((post) => post.id !== postId)
+            prevState.map((post) => (
+                post.id === postId 
+                    ? { ...post, removed: true }
+                    : post
+                ),
+            )
         ));
     }
 
