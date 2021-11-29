@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './Header';
-import Post from './Post';
+import Header from '../Header';
+import Post from '../Post';
 import { useState } from 'react';
-import { ThemeProvider } from './ThemeContext';
+import { ThemeProvider } from '../../context/ThemeContext';
 
 const initialPosts = [
     {

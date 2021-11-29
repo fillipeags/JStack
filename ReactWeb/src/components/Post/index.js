@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import PostHeader from './PostHeader';
 
 import styles from './Post.scss';
+import { Subtitle, Average } from './styles';
 
 export default function Post({ 
     post,
@@ -20,9 +21,8 @@ export default function Post({
                     read: post.read,
                 }}
             />
-            <br/>
-            <small>{post.subtitle}</small><br/>
-            Likes: {post.likes / 2}
+            <Subtitle>{post.subtitle}</Subtitle>
+            <Average>Média: {post.likes / 2}</Average>
         </article>
     )
 }

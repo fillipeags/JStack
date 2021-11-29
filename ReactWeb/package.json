@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "babel-loader": "^8.2.3",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "styled-components": "^5.3.3"
   }
 }
