@@ -2,17 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PostHeader from './PostHeader';
 
-import styles from './Post.scss';
-import { Subtitle, Average } from './styles';
+import { Subtitle, Average, Container } from './styles';
 
 export default function Post({ 
     post,
     onRemove,
 }) {
     return (
-        <article 
-            className={post.removed ? styles.postDeleted : styles.post}
-        >
+        <Container removed={post.removed}>
             <PostHeader 
                 onRemove={onRemove}
                 post={{ 
@@ -23,7 +20,7 @@ export default function Post({
             />
             <Subtitle>{post.subtitle}</Subtitle>
             <Average>Média: {post.likes / 2}</Average>
-        </article>
+        </Container>
     )
 }
 
