@@ -22,7 +22,7 @@ function App() {
       <GlobalStyle />
       <Layout 
         onToggleTheme={handleToggleTheme} 
-        selectedTheme={currentTheme}  
+        selectedTheme={theme}  
       />
     </ThemeProvider>
   );
