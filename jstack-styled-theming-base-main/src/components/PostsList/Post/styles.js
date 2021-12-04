@@ -4,11 +4,11 @@ export const Container = styled.article`
   background: ${({ theme }) => theme.postBackgroundColor};
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  border-radius: 10px;
+  padding: ${({ theme }) => theme.spacing.medium};
+  border-radius: ${({ theme }) => theme.borderRadius};
 
   h2 {
-    margin: 0 0 8px;
+    margin: ${({ theme }) => `0 0 ${theme.spacing.small}`};
   }
 
   small {
@@ -16,6 +16,6 @@ export const Container = styled.article`
   }
 
   & + article {
-    margin-top: 8px;
+    margin-top: ${({ theme }) => theme.spacing.small};
   }
 `;
