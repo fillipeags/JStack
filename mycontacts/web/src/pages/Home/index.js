@@ -8,12 +8,14 @@ import edit from '../../assets/images/icons/Edit.svg';
 import {
   InputSearchContainer, Container, Header, ListContainer, Card,
 } from './styles';
-import Modal from '../../components/Modal';
+// import Loader from '../../components/Loader';
+// import Modal from '../../components/Modal';
 
 export default function Home() {
   return (
     <Container>
-      <Modal danger title="teste" subtitle="teste teste" />
+      {/* <Modal danger title="teste" subtitle="teste teste" /> */}
+      {/* <Loader /> */}
 
       <InputSearchContainer>
         <input type="text" placeholder="Pesquisar contato" />
