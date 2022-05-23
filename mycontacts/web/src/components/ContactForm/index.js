@@ -9,6 +9,7 @@ import FormGroup from '../FormGroup';
 
 import { Form, ButtonContainer } from './styles';
 import isEmailValid from '../../utils/isEmailValid';
+import formatPhone from '../../utils/formatPhone';
 import useErrors from '../../hooks/useErrors';
 
 export default function ContactForm({ buttonLabel }) {
@@ -36,7 +37,7 @@ export default function ContactForm({ buttonLabel }) {
     console.log({
       name,
       email,
-      phone,
+      phone: phone.replace(/\D/g, ''),
       category,
     });
   }
@@ -53,8 +54,12 @@ export default function ContactForm({ buttonLabel }) {
     }
   }
 
+  function handlePhoneChange(event) {
+    setPhone(formatPhone(event.target.value));
+  }
+
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} noValidate>
       <FormGroup error={getErrorMessageByFieldName('name')}>
         <Input
           error={getErrorMessageByFieldName('name')}
@@ -69,17 +74,20 @@ export default function ContactForm({ buttonLabel }) {
           value={email}
           onChange={handleEmailChange}
           placeholder="Email"
+          type="email"
         />
       </FormGroup>
       <FormGroup>
         <Input
           value={phone}
           placeholder="Telefone"
-          onChange={(event) => setPhone(event.target.value)}
+          onChange={handlePhoneChange}
+          type="phone"
+          maxLength={16}
         />
       </FormGroup>
       <FormGroup>
-        <Select onChange={(event) => setCategory(event.target.value)}>
+        <Select value={category} onChange={(event) => setCategory(event.target.value)}>
           <option value="">Selecione</option>
           <option value="instagram">Instagram</option>
           <option value="discord">Discord</option>
